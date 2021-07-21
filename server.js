@@ -29,4 +29,10 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")));
 
 // Load router
 app.use("/", require('./server/routes/router'));
+// Connecting to React Front End
+app.get('/express_backend', (req, res) => {
+    res.send({express: 'Express Connected to React'});
+})
+
+
 app.listen(PORT, () => { console.log(`server running on localhost port ${PORT}`) });
