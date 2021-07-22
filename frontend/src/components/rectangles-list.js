@@ -17,7 +17,14 @@ const RectangleList = props => {
                 console.log(error);
             });
         }
-    
+        // refresh if needed
+    const refreshList = () => {
+    retriveRectangles();
+    };
+    const deleteRectangle = (id) => {
+        RectangleDataService.deleteRectangle(id);
+        refreshList();
+    }
     return (
         <div>
            
@@ -25,7 +32,9 @@ const RectangleList = props => {
                 
                 
             <div className="row">
+                {/* for each rectangle return this */}
                 {rectangles.map((rectangles) => {
+                    const id = `${rectangles._id}`;
                     return (
                         <div className="col-lg-4 pb-1">
                             <div className="card">
@@ -36,11 +45,18 @@ const RectangleList = props => {
                                         <strong>Width: </strong>{rectangles.width}<br />
                                         <strong>Height: </strong>{rectangles.height}
                                     </p>
+                                    <div className="rectangle">
+                                        hey
+                                    </div>
                                     <div className="row">
-                                        <Link to={"/restaurants/" + rectangles._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                                        <Link to={"/rectangles/" + rectangles._id} className="btn btn-primary btn-lg btn-block">
                                             View Details
                                         </Link>
-                                        <a target="_blank" href={"https://www.google.com/maps/place/" + rectangles.name} className="btn btn-danger col-lg-5 mx-1 mb-1">Delete Rectangle</a>
+                                        {/* <Link to={"/delete-rectangle/" + rectangles._id} className="btn btn-danger col-lg-5 mx-1 mb-1">
+                                            DELETE RECTANGLE
+                                        </Link> */}
+                                        {/* <a target="" href={"https://www.google.com/maps/place/" + id} className="btn btn-danger col-lg-5 mx-1 mb-1">Delete Rectangle</a> */}
+                                        
                                     </div>
                                 </div>
                             </div>

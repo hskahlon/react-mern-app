@@ -4,13 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Rectangles from './components/rectangles';
 import Rectangle_list from './components/rectangles-list';
 import AddRectangle from './components/add-rectangle';
-
+import DeleteRectangle from './components/delete-rectangle';
 function App() {
 
   return (
     <div>
 
-      
+      {/* Nav Bar */}
       <nav className="navbar navbar-expand navbar-dark bg-dark">
       <a href="/" className="navbar-brand">Home</a>
       <div className="navbar-nav mr-auto">
@@ -24,24 +24,13 @@ function App() {
               Add Rectangle
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to={"/delete-rectangle"} className="nav-link">
-              Delete Rectangles
-            </Link>
-          </li>
       </div>
       </nav>
       {/* switching routes */}
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/","/rectangle-list"]} component={Rectangle_list}></Route>
-
-          <Route
-            path="/rectangles/:id/add-rectangle"
-          render={(props) => (
-            <AddRectangle {...props}  />
-          )}
-          />
+          <Route exact path={["/add-rectangle"]} component={AddRectangle}></Route>
           <Route
             path="/rectangles/:id"
             render={(props) => (
