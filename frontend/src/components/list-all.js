@@ -9,7 +9,6 @@ function Canvas(props) {
     useEffect(() => {
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
-        //Our first draw
         context.fillStyle = props.color
         context.fillRect(0, 0, props.width, props.height)
     }, [])
@@ -18,6 +17,7 @@ function Canvas(props) {
 }
 const ListAll = props => {
     const [rectangles, setRectangles] = useState([]);
+    
     useEffect(() => {
         retriveRectangles();
     }, []);
@@ -32,6 +32,7 @@ const ListAll = props => {
             });
     }
 
+
     return (
         <div>
             
@@ -39,14 +40,20 @@ const ListAll = props => {
                 {/* for each rectangle return this */}
                 {rectangles.map((rectangles) => {
                     const id = `${rectangles._id}`;
+                    const rectangleStyle = {
+                      height: rectangles.height,
+                      width: rectangles.width,
+                      backgroundColor: rectangles.color
+                    }
+
                     return (
                         // column
-                        <ListGroup >
-                            <a href={"/rectangles/" + rectangles._id} class="list-group-item">{rectangles.name}</a>
-                            <Canvas color={rectangles.color}
-                                width={rectangles.width} height={rectangles.height}
-                            />
-                        </ListGroup>
+                        <div>
+                          <div class="rectangle" style={rectangleStyle}>
+
+                          </div>
+                          <br></br>
+                        </div>
                     );
                 })}
 
