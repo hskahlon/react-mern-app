@@ -51,7 +51,7 @@ const RectangleList = props => {
                     const id = `${rectangles._id}`;
                     return (
                         // column
-                        <div className="col-lg-4 pb-1">
+                        <div className="col-lg-4 pb-1" key={id}>
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">{rectangles.name}</h5>

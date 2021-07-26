@@ -38,13 +38,14 @@ const Rectangles = props => {
     return (
         <div className="App">
             <div className="col-lg-4 pb-1">
-                <div className="card">
+                <div className="card" >
                     <div className="card-body">
                         <h5 className="card-title">{rectangle.name}</h5>
                         <p className="card-text">
                             <strong>Color: </strong>{rectangle.color}<br />
                             <strong>Width: </strong>{rectangle.width}<br />
-                            <strong>Height: </strong>{rectangle.height}
+                            <strong>Height: </strong>{rectangle.height} <br />
+                            <strong>ID: </strong> {rectangle._id} <br />
                         </p>
                         <a onClick={() => deleteRectangle(rectangle._id)} className="btn btn-danger btn-lg btn-block">Delete Rectangle</a>
                         
