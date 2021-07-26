@@ -1,6 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup'
 import RectangleDataService from '../services/RectangleDataService'
+function Canvas(props) {
 
+    const canvasRef = useRef(null)
+    
+    useEffect(() => {
+        const canvas = canvasRef.current
+        const context = canvas.getContext('2d')
+        context.fillStyle = props.color
+        context.fillRect(0, 0, props.width, props.height)
+    }, [])
+
+    return <canvas ref={canvasRef} {...props} />
+}
 const ListAll = props => {
     const [rectangles, setRectangles] = useState([]);
     
@@ -17,12 +31,7 @@ const ListAll = props => {
                 console.log(error);
             });
     }
-    // Get the id of the clicked element
-    const handleClick = (val) => {
-      let rect_id = val.target.id;
-      window.location.href = `/rectangles/${rect_id}`
 
-    }
 
     return (
         <div>
@@ -39,8 +48,8 @@ const ListAll = props => {
 
                     return (
                         // column
-                        <div key={id}>
-                          <div className="rectangle" style={rectangleStyle} onClick={handleClick} id={id}>
+                        <div>
+                          <div class="rectangle" style={rectangleStyle}>
 
                           </div>
                           <br></br>

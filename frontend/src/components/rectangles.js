@@ -35,6 +35,18 @@ const Rectangles = props => {
         console.log(e);
     });
     };
+
+
+    // RectangleDataService.deleteRectangle(rectangleID)
+    //   .then(response => {
+    //     window.location.href = "/modify-rectangle"
+
+    //   })
+    //   .catch(e => {
+    //     console.log(e);
+    //   });
+  
+
     return (
         <div className="App">
             <div className="col-lg-4 pb-1">
@@ -47,8 +59,11 @@ const Rectangles = props => {
                             <strong>Height: </strong>{rectangle.height} <br />
                             <strong>ID: </strong> {rectangle._id} <br />
                         </p>
-                        <a onClick={() => deleteRectangle(rectangle._id)} className="btn btn-danger btn-lg btn-block">Delete Rectangle</a>
-                        
+                        <button onClick={() => deleteRectangle(rectangle._id)} className="btn btn-danger btn-lg btn-block">Delete Rectangle</button>
+                        <Link to={"/modify-rectangle/" + rectangle._id} className="btn btn-success btn-lg btn-block">
+                          Modify Rectangle
+                        </Link>
+
                         
                     </div>
                 </div>
