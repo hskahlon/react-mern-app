@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Rectangles from './components/rectangles';
 import Rectangle_list from './components/rectangles-list';
 import AddRectangle from './components/add-rectangle';
-import DeleteRectangle from './components/delete-rectangle';
+import ListAll from './components/list-all';
 function App() {
 
   return (
@@ -29,7 +29,8 @@ function App() {
       {/* switching routes */}
       <div className="container mt-3">
         <Switch>
-          <Route exact path={["/","/rectangle-list"]} component={Rectangle_list}></Route>
+          <Route exact path={["/"]} component={Rectangle_list}></Route>
+          <Route exact path={["/rectangle-list"]} component={ListAll}></Route>
           <Route exact path={["/add-rectangle"]} component={AddRectangle}></Route>
           <Route
             path="/rectangles/:id"
