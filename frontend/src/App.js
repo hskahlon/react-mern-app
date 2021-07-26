@@ -5,6 +5,7 @@ import Rectangles from './components/rectangles';
 import Rectangle_list from './components/rectangles-list';
 import AddRectangle from './components/add-rectangle';
 import ListAll from './components/list-all';
+import ModifyRectangle from './components/ModifyRectangle';
 function App() {
 
   return (
@@ -24,6 +25,11 @@ function App() {
               Add Rectangle
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to={"/modify-rectangle"} className="nav-link">
+              Modify Rectangles
+            </Link>
+          </li>
       </div>
       </nav>
       {/* switching routes */}
@@ -32,6 +38,13 @@ function App() {
           <Route exact path={["/"]} component={Rectangle_list}></Route>
           <Route exact path={["/rectangle-list"]} component={ListAll}></Route>
           <Route exact path={["/add-rectangle"]} component={AddRectangle}></Route>
+          <Route
+          path="/modify-rectangle/:id"
+          render={(props) => (
+            <ModifyRectangle {...props} />
+          )}
+          />
+
           <Route
             path="/rectangles/:id"
             render={(props) => (

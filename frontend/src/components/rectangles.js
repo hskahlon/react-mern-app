@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RectangleDataService from '../services/RectangleDataService'
+import ModifyRectangle from './ModifyRectangle';
+import { Route } from 'react-router-dom';
 const Rectangles = props => {
     const intialRectangleState = {
         id: null,
@@ -35,6 +37,24 @@ const Rectangles = props => {
         console.log(e);
     });
     };
+
+
+    // RectangleDataService.deleteRectangle(rectangleID)
+    //   .then(response => {
+    //     window.location.href = "/modify-rectangle"
+
+    //   })
+    //   .catch(e => {
+    //     console.log(e);
+    //   });
+  
+  const rectangleDetails = {
+    color: rectangle.color,
+    width: rectangle.width,
+    height: rectangle.height,
+    id: rectangle.id,
+    name: rectangle.name
+  }
     return (
         <div className="App">
             <div className="col-lg-4 pb-1">
@@ -48,7 +68,10 @@ const Rectangles = props => {
                             <strong>ID: </strong> {rectangle._id} <br />
                         </p>
                         <a onClick={() => deleteRectangle(rectangle._id)} className="btn btn-danger btn-lg btn-block">Delete Rectangle</a>
-                        
+                        <Link to={"/modify-rectangle/" + rectangle._id} className="btn btn-success btn-lg btn-block">
+                          Modify Rectangle
+                        </Link>
+
                         
                     </div>
                 </div>
