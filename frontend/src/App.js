@@ -1,19 +1,22 @@
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css"
+import Navbar from 'react-bootstrap/Navbar'
 import Rectangles from './components/rectangles';
 import Rectangle_list from './components/rectangles-list';
 import AddRectangle from './components/add-rectangle';
 import ListAll from './components/list-all';
 import ModifyRectangle from './components/ModifyRectangle';
+
 function App() {
 
   return (
     <div>
 
       {/* Nav Bar */}
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <a href="/" className="navbar-brand">Home</a>
+
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" expand="true">
+      <a href="/" className="navbar-brand"> &nbsp;&nbsp; Home</a>
       <div className="navbar-nav mr-auto">
         <li className="nav-item">
             <Link to={"/rectangle-list"} className="nav-link">
@@ -25,12 +28,20 @@ function App() {
               Add Rectangle
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to={"/modify-rectangle"} className="nav-link">
-              Modify Rectangles
-            </Link>
-          </li>
+       
       </div>
+        <div class = "navbar-nav mx-auto">
+          <li className="nav-items">
+            <div className="nav-link">
+              Created By Harjot with React :) 
+            </div>
+          </li>
+
+      </div>
+      
+      </nav>
+      <nav>
+        
       </nav>
       {/* switching routes */}
       <div className="container mt-3">

@@ -71,11 +71,6 @@ const RectangleList = props => {
                                         <Link to={"/rectangles/" + rectangles._id} className="btn btn-primary btn-lg btn-block">
                                             View Details
                                         </Link>
-                                        {/* <Link to={"/delete-rectangle/" + rectangles._id} className="btn btn-danger col-lg-5 mx-1 mb-1">
-                                            DELETE RECTANGLE
-                                        </Link> */}
-                                        {/* <a target="" href={"https://www.google.com/maps/place/" + id} className="btn btn-danger col-lg-5 mx-1 mb-1">Delete Rectangle</a> */}
-                                        
                                     </div>
                                 </div>
                             </div>
