@@ -1,21 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup'
 import RectangleDataService from '../services/RectangleDataService'
-function Canvas(props) {
 
-    const canvasRef = useRef(null)
-
-    useEffect(() => {
-        const canvas = canvasRef.current
-        const context = canvas.getContext('2d')
-        //Our first draw
-        context.fillStyle = props.color
-        context.fillRect(0, 0, props.width, props.height)
-    }, [])
-
-    return <canvas ref={canvasRef} {...props} />
-}
 const RectangleList = props => {
     const [rectangles, setRectangles] = useState([]);
     useEffect(() => {
@@ -32,13 +18,13 @@ const RectangleList = props => {
             });
         }
         // refresh if needed
-    const refreshList = () => {
-    retriveRectangles();
-    };
-    const deleteRectangle = (id) => {
-        RectangleDataService.deleteRectangle(id);
-        refreshList();
-    }
+
+
+  const handleClick = (val) => {
+    let rect_id = val.target.id;
+    window.location.href = `/rectangles/${rect_id}`
+
+  }
     return (
         <div>
            
@@ -49,6 +35,11 @@ const RectangleList = props => {
                 {/* for each rectangle return this */}
                 {rectangles.map((rectangles) => {
                     const id = `${rectangles._id}`;
+                  const rectangleStyle = {
+                    height: rectangles.height,
+                    width: rectangles.width,
+                    backgroundColor: rectangles.color
+                  }
                     return (
                         // column
                         <div className="col-lg-4 pb-1" key={id}>
@@ -61,10 +52,13 @@ const RectangleList = props => {
                                         <strong>Height: </strong>{rectangles.height}
                                         
                                     </p>
+                                    
                                     <div className="rectangle">
-                                        <Canvas color={rectangles.color}
-                                        width={rectangles.width} height={rectangles.height}
-                                        />
+                                        <div className="rectangle" style={rectangleStyle} onClick={handleClick} id={id}>
+
+                                        </div>
+                                        <br></br>
+                                        
                                     </div>
                                     {/* row */}
                                     <div className="row">

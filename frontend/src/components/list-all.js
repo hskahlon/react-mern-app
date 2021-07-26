@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef, Component } from 'react';
-import { Link } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup'
+import React, { useState, useEffect } from 'react';
 import RectangleDataService from '../services/RectangleDataService'
 
 const ListAll = props => {
