@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css"
+import "./bootstrap/dist/css/bootstrap.min.css"
 import Rectangles from './components/rectangles';
 import Rectangle_list from './components/rectangles-list';
 import AddRectangle from './components/add-rectangle';
