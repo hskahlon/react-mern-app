@@ -5,11 +5,11 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const cors = require("cors");
 const connectDB = require('./server/database/connection');
-
+console.log('Started ServerJS');
 const app = express();
 app.use(cors());
 dotenv.config({ path: 'config.env' });
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 // set view engine
 // app.set("view engine", "ejs");
 //app.set("view", path.resolve(__dirname,"views/"))
@@ -31,7 +31,9 @@ connectDB();
 app.use("/", require('./server/routes/router'));
 // Connecting to React Front End
 app.get('/express_backend', (req, res) => {
-    res.send({express: 'Express Connected to React'});
+  console.log('Express Connected to React')
+  res.send({express: 'Express Connected to React'});
+   
 })
 
 
